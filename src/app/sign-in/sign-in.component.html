@@ -1,0 +1,39 @@
+<main class="flex items-center justify-center w-full h-screen">
+  <div
+    class="max-w-[32.5rem] max-h-[25.6875rem] rounded-[0.5rem] w-full h-full bg-white flex flex-col items-center justify-center"
+  >
+    <img src="../../assets/icons/logo.svg" class="mb-2" />
+    <form class="w-full items-center flex flex-col justify-center px-16 gap-7">
+      <label htmlLabel class="w-full">
+        E-mail
+        <input
+          hlmInput
+          class="w-full"
+          type="email"
+          placeholder="Insira seu e-mail"
+          required
+        />
+      </label>
+
+      <label htmlLabel class="w-full relative flex flex-col">
+        Senha
+        <hlm-icon
+          size="base"
+          name="{{ isShowingPassword ? 'lucideEye' : 'lucideEyeOff' }}"
+          class="absolute bottom-2 right-3 cursor-pointer text-slate-400"
+          (click)="handleTogglePasswordVisibility()"
+        />
+        <input
+          hlmInput
+          class="w-full"
+          type="password"
+          type="{{ !isShowingPassword ? 'password' : 'text' }}"
+          placeholder="Insira sua senha"
+          required
+        />
+      </label>
+
+      <button hlmBtn class="w-full">Entrar</button>
+    </form>
+  </div>
+</main>
