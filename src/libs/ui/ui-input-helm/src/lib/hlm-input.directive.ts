@@ -13,7 +13,8 @@ export const inputVariants = cva(
         lg: 'h-11 px-8',
       },
       error: {
-        auto: '[&.ng-invalid.ng-touched]:text-destructive [&.ng-invalid.ng-touched]:border-destructive [&.ng-invalid.ng-touched]:focus-visible:ring-destructive',
+        auto: '',
+        //auto: '[&.ng-invalid.ng-touched]:text-destructive [&.ng-invalid.ng-touched]:border-destructive [&.ng-invalid.ng-touched]:focus-visible:ring-destructive',
         true: 'text-destructive border-destructive focus-visible:ring-destructive',
       },
     },
@@ -21,7 +22,7 @@ export const inputVariants = cva(
       size: 'default',
       error: 'auto',
     },
-  },
+  }
 );
 type InputVariants = VariantProps<typeof inputVariants>;
 
@@ -49,7 +50,7 @@ export class HlmInputDirective {
   protected _computedClass = computed(() =>
     hlm(
       inputVariants({ size: this._size(), error: this._error() }),
-      this.userClass(),
-    ),
+      this.userClass()
+    )
   );
 }
