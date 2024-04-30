@@ -6,9 +6,11 @@ import { HlmButtonDirective } from '../../libs/ui/ui-button-helm/src/lib/hlm-but
 import { HlmInputDirective } from '../../libs/ui/ui-input-helm/src/lib/hlm-input.directive';
 import { HlmIconComponent } from '../../libs/ui/ui-icon-helm/src/lib/hlm-icon.component';
 import { HlmLabelDirective } from '../../libs/ui/ui-label-helm/src/lib/hlm-label.directive';
-import { AuthenticationService } from '../../services/authentication.service';
-import { AuthenticateRequestModelView } from '../../models-views/authentication.model-view';
+import { AuthenticateRequestModelView } from '../../models-views/auth.model-view';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { provideIcons } from '@ng-icons/core';
+import { lucideEye, lucideEyeOff } from '@ng-icons/lucide';
 
 @Component({
   selector: 'app-sign-in',
@@ -24,6 +26,7 @@ import { Router } from '@angular/router';
     HlmSpinnerComponent,
     CommonModule,
   ],
+  providers: [provideIcons({ lucideEye, lucideEyeOff })],
 })
 export class SignInComponent {
   public isShowingPassword = false;
@@ -35,7 +38,7 @@ export class SignInComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService,
+    private authService: AuthService,
     private router: Router
   ) {}
 
@@ -52,7 +55,7 @@ export class SignInComponent {
 
     this.isLoading = true;
     try {
-      await this.authenticationService.login(
+      await this.authService.login(
         this.loginForm.value as AuthenticateRequestModelView
       );
       this.router.navigate(['admin']);
