@@ -32,9 +32,6 @@
          "#models/*": ["models/*"],
          "#models-views/*": ["models-views/*"],
          "#services/*": ["services/*"],
-         "@spartan-ng/ui-alert-helm": [
-            "views/components/ui/ui-alert-helm/src/index.ts"
-         ],
          "@spartan-ng/ui-avatar-helm": [
             "views/components/ui/ui-avatar-helm/src/index.ts"
          ],
