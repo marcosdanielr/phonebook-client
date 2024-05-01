@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
-import { DashboardComponent } from '#views/dashboard/dashboard.component';
-import { SignInComponent } from '#views/sign-in/sign-in.component';
+import { DashboardComponent } from '#views/pages/dashboard/dashboard.component';
+import { SignInComponent } from '#views/pages/sign-in/sign-in.component';
 
 import { authGuard } from '#guards/auth.guard';
 
