@@ -17,7 +17,7 @@ import { HlmSeparatorDirective } from '../../libs/ui/ui-separator-helm/src/lib/h
 import { BrnSeparatorComponent } from '@spartan-ng/ui-separator-brain';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { RoutesEnum } from '../constants/routes.enum';
+import { RoutesEnum } from '../../constants/routes.enum';
 
 @Component({
   selector: 'app-header',

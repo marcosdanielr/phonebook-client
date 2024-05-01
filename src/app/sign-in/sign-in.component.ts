@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { provideIcons } from '@ng-icons/core';
 import { lucideEye, lucideEyeOff } from '@ng-icons/lucide';
-import { RoutesEnum } from '../constants/routes.enum';
+import { RoutesEnum } from '../../constants/routes.enum';
 
 @Component({
   selector: 'app-sign-in',
@@ -40,7 +40,7 @@ export class SignInComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router,
+    private router: Router
   ) {}
 
   handleTogglePasswordVisibility(): void {
@@ -58,7 +58,7 @@ export class SignInComponent {
 
     try {
       await this.authService.login(
-        this.loginForm.value as AuthenticateRequestModelView,
+        this.loginForm.value as AuthenticateRequestModelView
       );
       this.router.navigate([RoutesEnum.DASHBOARD]);
     } catch (error) {
