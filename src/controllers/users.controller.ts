@@ -11,7 +11,7 @@ export class UsersController {
    constructor(private usersService: UsersService) {}
 
    async getCurrentUser(): Promise<UserModel> {
-      const user = this.usersService.getCurrentUser();
+      const user = await this.usersService.getCurrentUser();
       return user;
    }
 }
