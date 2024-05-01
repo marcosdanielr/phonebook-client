@@ -14,7 +14,7 @@ import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
 
 @Component({
    selector: 'app-sign-in',
-   templateUrl: './sign-in.component.html',
+   templateUrl: './sign-in.page.html',
    standalone: true,
    imports: [
       NgOptimizedImage,
@@ -28,7 +28,7 @@ import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
    ],
    providers: [provideIcons({ lucideEye, lucideEyeOff })],
 })
-export class SignInComponent extends AuthController {
+export class SignInPage extends AuthController {
    public isShowingPassword = false;
 
    handleTogglePasswordVisibility(): void {

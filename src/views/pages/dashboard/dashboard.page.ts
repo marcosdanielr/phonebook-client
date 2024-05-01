@@ -6,6 +6,6 @@ import { HeaderComponent } from '#views/components/custom/header/header.componen
    selector: 'app-dashboard',
    standalone: true,
    imports: [HeaderComponent],
-   templateUrl: './dashboard.component.html',
+   templateUrl: './dashboard.page.html',
 })
-export class DashboardComponent {}
+export class DashboardPage {}
