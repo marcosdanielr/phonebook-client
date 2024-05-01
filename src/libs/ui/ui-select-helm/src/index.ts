@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { HlmSelectContentDirective } from './lib/hlm-select-content.directive';
 import { HlmSelectGroupDirective } from './lib/hlm-select-group.directive';
 import { HlmSelectLabelDirective } from './lib/hlm-select-label.directive';
@@ -20,19 +21,19 @@ export * from './lib/hlm-select-value.directive';
 export * from './lib/hlm-select.directive';
 
 export const HlmSelectImports = [
-	HlmSelectContentDirective,
-	HlmSelectTriggerComponent,
-	HlmSelectOptionComponent,
-	HlmSelectValueDirective,
-	HlmSelectDirective,
-	HlmSelectScrollUpComponent,
-	HlmSelectScrollDownComponent,
-	HlmSelectLabelDirective,
-	HlmSelectGroupDirective,
+   HlmSelectContentDirective,
+   HlmSelectTriggerComponent,
+   HlmSelectOptionComponent,
+   HlmSelectValueDirective,
+   HlmSelectDirective,
+   HlmSelectScrollUpComponent,
+   HlmSelectScrollDownComponent,
+   HlmSelectLabelDirective,
+   HlmSelectGroupDirective,
 ] as const;
 
 @NgModule({
-	imports: [...HlmSelectImports],
-	exports: [...HlmSelectImports],
+   imports: [...HlmSelectImports],
+   exports: [...HlmSelectImports],
 })
 export class HlmSelectModule {}

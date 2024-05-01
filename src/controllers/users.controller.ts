@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { UsersService } from '../services/users.service';
+
 import { UserModel } from '../models/user.model';
+import { UsersService } from '../services/users.service';
 
 @Injectable({
-  providedIn: 'root',
+   providedIn: 'root',
 })
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+   constructor(private usersService: UsersService) {}
 
-  async getCurrentUser(): Promise<UserModel> {
-    const user = this.usersService.getCurrentUser();
-    return user;
-  }
+   async getCurrentUser(): Promise<UserModel> {
+      const user = this.usersService.getCurrentUser();
+      return user;
+   }
 }

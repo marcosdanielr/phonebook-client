@@ -1,30 +1,32 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserModel } from '../models/user.model';
+import { Injectable } from '@angular/core';
+
 import { lastValueFrom } from 'rxjs';
 
+import { UserModel } from '../models/user.model';
+
 interface UserResponse {
-  user: UserModel;
+   user: UserModel;
 }
 
 @Injectable({
-  providedIn: 'root',
+   providedIn: 'root',
 })
 export class UsersService {
-  constructor(private http: HttpClient) {}
+   constructor(private http: HttpClient) {}
 
-  async getCurrentUser(): Promise<UserModel> {
-    try {
-      const { user } = await lastValueFrom(
-        this.http.get<UserResponse>('/api/auth/current_user', {
-          responseType: 'json',
-        })
-      );
+   async getCurrentUser(): Promise<UserModel> {
+      try {
+         const { user } = await lastValueFrom(
+            this.http.get<UserResponse>('/api/auth/current_user', {
+               responseType: 'json',
+            }),
+         );
 
-      return user;
-    } catch (error) {
-      console.log({ error });
-      return error as any;
-    }
-  }
+         return user;
+      } catch (error) {
+         console.log({ error });
+         return error as any;
+      }
+   }
 }

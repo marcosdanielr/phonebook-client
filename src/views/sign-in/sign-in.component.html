@@ -1,28 +1,56 @@
-<main class="flex items-center justify-center w-full h-screen">
-  <div
-    class="max-w-[32.5rem] max-h-[25.6875rem] rounded-[0.5rem] w-full h-full bg-white flex flex-col items-center justify-center">
-    <img src="../../assets/icons/logo.svg" class="mb-2" alt="logo" />
-    <form class="w-full items-center flex flex-col justify-center px-16 gap-7" (submit)="login($event)"
-      [formGroup]="loginForm" ngNativeValidate>
-      <label htmlLabel class="w-full">
-        E-mail
-        <input hlmInput class="w-full" type="email" formControlName="email" placeholder="Insira seu e-mail" required />
-      </label>
+<main class="flex h-screen w-full items-center justify-center">
+   <div
+      class="flex h-full max-h-[25.6875rem] w-full max-w-[32.5rem] flex-col items-center justify-center rounded-[0.5rem] bg-white">
+      <img
+         src="../../assets/icons/logo.svg"
+         class="mb-2"
+         alt="logo" />
+      <form
+         class="flex w-full flex-col items-center justify-center gap-7 px-16"
+         (submit)="login($event)"
+         [formGroup]="loginForm"
+         ngNativeValidate>
+         <label
+            htmlLabel
+            class="w-full">
+            E-mail
+            <input
+               hlmInput
+               class="w-full"
+               type="email"
+               formControlName="email"
+               placeholder="Insira seu e-mail"
+               required />
+         </label>
 
-      <label htmlLabel class="w-full relative flex flex-col">
-        Senha
-        <hlm-icon size="base" name="{{ isShowingPassword ? 'lucideEye' : 'lucideEyeOff' }}"
-          class="absolute bottom-2 right-3 cursor-pointer text-slate-400" (click)="handleTogglePasswordVisibility()" />
-        <input hlmInput class="w-full" formControlName="password" type="{{ !isShowingPassword ? 'password' : 'text' }}"
-          placeholder="Insira sua senha" required />
-      </label>
+         <label
+            htmlLabel
+            class="relative flex w-full flex-col">
+            Senha
+            <hlm-icon
+               size="base"
+               name="{{ isShowingPassword ? 'lucideEye' : 'lucideEyeOff' }}"
+               class="absolute bottom-2 right-3 cursor-pointer text-slate-400"
+               (click)="handleTogglePasswordVisibility()" />
+            <input
+               hlmInput
+               class="w-full"
+               formControlName="password"
+               type="{{ !isShowingPassword ? 'password' : 'text' }}"
+               placeholder="Insira sua senha"
+               required />
+         </label>
 
-      <button hlmBtn class="w-full" type="submit" [disabled]="isLoading">
-        <ng-container *ngIf="isLoading; else buttonText">
-          <hlm-spinner size="sm" />
-        </ng-container>
-        <ng-template #buttonText>Entrar</ng-template>
-      </button>
-    </form>
-  </div>
+         <button
+            hlmBtn
+            class="w-full"
+            type="submit"
+            [disabled]="isLoading">
+            <ng-container *ngIf="isLoading; else buttonText">
+               <hlm-spinner size="sm" />
+            </ng-container>
+            <ng-template #buttonText>Entrar</ng-template>
+         </button>
+      </form>
+   </div>
 </main>
