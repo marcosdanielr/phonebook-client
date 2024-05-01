@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 
 import {
-   AuthenticateRequestModelView,
-   AuthenticateResponseModelView,
+   AuthenticateRequestViewModel,
+   AuthenticateResponseViewModel,
 } from '#view-models/auth.view-model';
 import { lastValueFrom } from 'rxjs';
 
@@ -20,9 +20,9 @@ export class AuthService {
    async login({
       email,
       password,
-   }: AuthenticateRequestModelView): Promise<void> {
+   }: AuthenticateRequestViewModel): Promise<void> {
       const { access_token } = await lastValueFrom(
-         this.http.post<AuthenticateResponseModelView>('/api/auth', {
+         this.http.post<AuthenticateResponseViewModel>('/api/auth', {
             email,
             password,
          }),
