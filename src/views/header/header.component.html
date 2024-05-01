@@ -4,19 +4,19 @@
   <brn-popover sideOffset="5" closeDelay="100">
     <button class="flex items-center justify-center gap-2 cursor-pointer" brnPopoverTrigger htmlBtn>
       <hlm-avatar>
-        <span class="text-white bg-blue-600" hlmAvatarFallback>U</span>
+        <span class="text-white bg-blue-600" hlmAvatarFallback>{{ user!.name[0] }}</span>
       </hlm-avatar>
 
       <p class="flex items-center text-sm">
         Olá,&nbsp;
-        <strong>usuário</strong>
+        <strong>{{ user!.name }}</strong>
         <img class="ml-1" src="../../assets/icons/dropdown.svg" alt="logo" />
       </p>
 
       <ul hlmPopoverContent class="w-52 grid gap-2 bg-white shadow-md rounded-lg text-slate-700 mt-3 mr-2 py-2"
         *brnPopoverContent="let ctx">
         <li class="h-8 ml-3">
-          <strong>usuário</strong>
+          <strong>{{ user!.name }}</strong>
         </li>
         <brn-separator hlmSeparator />
 
