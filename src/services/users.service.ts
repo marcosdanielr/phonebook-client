@@ -31,7 +31,7 @@ export class UsersService {
 
    async list(): Promise<UserModel[]> {
       const { users } = await lastValueFrom(
-         this.http.get<UsersResponse>('/api/users', {
+         this.http.get<UsersResponse>('/api/users?page=1', {
             responseType: 'json',
          }),
       );
