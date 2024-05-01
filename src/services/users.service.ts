@@ -9,6 +9,10 @@ interface UserResponse {
    user: UserModel;
 }
 
+interface UsersResponse {
+   users: UserModel[];
+}
+
 @Injectable({
    providedIn: 'root',
 })
@@ -16,17 +20,22 @@ export class UsersService {
    constructor(private http: HttpClient) {}
 
    async getCurrentUser(): Promise<UserModel> {
-      try {
-         const { user } = await lastValueFrom(
-            this.http.get<UserResponse>('/api/auth/current_user', {
-               responseType: 'json',
-            }),
-         );
+      const { user } = await lastValueFrom(
+         this.http.get<UserResponse>('/api/auth/current_user', {
+            responseType: 'json',
+         }),
+      );
 
-         return user;
-      } catch (error) {
-         console.log({ error });
-         return error as any;
-      }
+      return user;
+   }
+
+   async list(): Promise<UserModel[]> {
+      const { users } = await lastValueFrom(
+         this.http.get<UsersResponse>('/api/users', {
+            responseType: 'json',
+         }),
+      );
+
+      return users;
    }
 }
