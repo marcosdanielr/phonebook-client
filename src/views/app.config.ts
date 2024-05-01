@@ -8,7 +8,8 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 
-import { AuthInterceptor } from '../http-interceptors/auth-interceptor';
+import { AuthInterceptor } from '#http-interceptors/auth-interceptor';
+
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {

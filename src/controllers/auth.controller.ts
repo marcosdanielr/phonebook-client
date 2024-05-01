@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { RoutesEnum } from '../constants/routes.enum';
-import { AuthenticateRequestModelView } from '../models-views/auth.model-view';
-import { AuthService } from '../services/auth.service';
+import { AuthenticateRequestModelView } from '#models-views/auth.model-view';
+
+import { AuthService } from '#services/auth.service';
+
+import { RoutesEnum } from '#constants/routes.enum';
 
 @Injectable({
    providedIn: 'root',

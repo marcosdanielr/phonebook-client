@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
 
-import { RoutesEnum } from '../constants/routes.enum';
-import { authGuard } from '../guards/auth.guard';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { DashboardComponent } from '#views/dashboard/dashboard.component';
+import { SignInComponent } from '#views/sign-in/sign-in.component';
+
+import { authGuard } from '#guards/auth.guard';
+
+import { RoutesEnum } from '#constants/routes.enum';
 
 export const routes: Routes = [
    {

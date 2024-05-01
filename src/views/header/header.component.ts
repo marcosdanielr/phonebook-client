@@ -1,6 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { UserModel } from '#models/user.model';
+
+import { AuthController } from '#controllers/auth.controller';
+import { UsersController } from '#controllers/users.controller';
+
+import { RoutesEnum } from '#constants/routes.enum';
+
 import { provideIcons } from '@ng-icons/core';
 import { lucideLogOut, lucideSettings, lucideUser } from '@ng-icons/lucide';
 import {
@@ -8,6 +15,7 @@ import {
    HlmAvatarFallbackDirective,
    HlmAvatarImageDirective,
 } from '@spartan-ng/ui-avatar-helm';
+import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import {
    BrnPopoverCloseDirective,
    BrnPopoverComponent,
@@ -15,13 +23,7 @@ import {
    BrnPopoverTriggerDirective,
 } from '@spartan-ng/ui-popover-brain';
 import { BrnSeparatorComponent } from '@spartan-ng/ui-separator-brain';
-
-import { RoutesEnum } from '../../constants/routes.enum';
-import { AuthController } from '../../controllers/auth.controller';
-import { UsersController } from '../../controllers/users.controller';
-import { HlmIconComponent } from '../../libs/ui/ui-icon-helm/src/lib/hlm-icon.component';
-import { HlmSeparatorDirective } from '../../libs/ui/ui-separator-helm/src/lib/hlm-separator.directive';
-import { UserModel } from '../../models/user.model';
+import { HlmSeparatorDirective } from '@spartan-ng/ui-separator-helm';
 
 @Component({
    selector: 'app-header',

@@ -2,12 +2,12 @@ import { DOCUMENT } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 
-import { lastValueFrom } from 'rxjs';
-
 import {
    AuthenticateRequestModelView,
    AuthenticateResponseModelView,
-} from '../models-views/auth.model-view';
+} from '#models-views/auth.model-view';
+
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
    providedIn: 'root',

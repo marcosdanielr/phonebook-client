@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { lastValueFrom } from 'rxjs';
+import { UserModel } from '#models/user.model';
 
-import { UserModel } from '../models/user.model';
+import { lastValueFrom } from 'rxjs';
 
 interface UserResponse {
    user: UserModel;

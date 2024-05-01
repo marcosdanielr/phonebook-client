@@ -17,7 +17,15 @@
    "bracketSameLine": true,
    "importOrder": [
       "^@angular/(.*)$",
-      "^assets/(.*)$",
+      "#views/(.*)$",
+      "#assets/(.*)$",
+      "#models-views/(.*)$",
+      "#models/(.*)$",
+      "#services/(.*)$",
+      "#controllers/(.*)$",
+      "#guards/(.*)$",
+      "#http-interceptors/(.*)$",
+      "#constants/(.*)$",
       "<THIRD_PARTY_MODULES>",
       "^@spartan/(.*)$",
       "^[./]"
