@@ -32,43 +32,43 @@
          "#models-views/*": ["models-views/*"],
          "#services/*": ["services/*"],
          "@spartan-ng/ui-alert-helm": [
-            "libs/ui/ui-alert-helm/src/index.ts"
+            "views/libs/ui/ui-alert-helm/src/index.ts"
          ],
          "@spartan-ng/ui-avatar-helm": [
-            "libs/ui/ui-avatar-helm/src/index.ts"
+            "views/libs/ui/ui-avatar-helm/src/index.ts"
          ],
          "@spartan-ng/ui-button-helm": [
-            "libs/ui/ui-button-helm/src/index.ts"
+            "views/libs/ui/ui-button-helm/src/index.ts"
          ],
          "@spartan-ng/ui-input-helm": [
-            "libs/ui/ui-input-helm/src/index.ts"
+            "views/libs/ui/ui-input-helm/src/index.ts"
          ],
          "@spartan-ng/ui-popover-helm": [
-            "libs/ui/ui-popover-helm/src/index.ts"
+            "views/libs/ui/ui-popover-helm/src/index.ts"
          ],
          "@spartan-ng/ui-skeleton-helm": [
-            "libs/ui/ui-skeleton-helm/src/index.ts"
+            "views/libs/ui/ui-skeleton-helm/src/index.ts"
          ],
          "@spartan-ng/ui-spinner-helm": [
-            "libs/ui/ui-spinner-helm/src/index.ts"
+            "views/libs/ui/ui-spinner-helm/src/index.ts"
          ],
          "@spartan-ng/ui-table-helm": [
-            "libs/ui/ui-table-helm/src/index.ts"
+            "views/libs/ui/ui-table-helm/src/index.ts"
          ],
          "@spartan-ng/ui-pagination-helm": [
-            "libs/ui/ui-pagination-helm/src/index.ts"
+            "views/libs/ui/ui-pagination-helm/src/index.ts"
          ],
          "@spartan-ng/ui-select-helm": [
-            "libs/ui/ui-select-helm/src/index.ts"
+            "views/libs/ui/ui-select-helm/src/index.ts"
          ],
          "@spartan-ng/ui-icon-helm": [
-            "libs/ui/ui-icon-helm/src/index.ts"
+            "views/libs/ui/ui-icon-helm/src/index.ts"
          ],
          "@spartan-ng/ui-label-helm": [
-            "libs/ui/ui-label-helm/src/index.ts"
+            "views/libs/ui/ui-label-helm/src/index.ts"
          ],
          "@spartan-ng/ui-separator-helm": [
-            "libs/ui/ui-separator-helm/src/index.ts"
+            "views/libs/ui/ui-separator-helm/src/index.ts"
          ]
       }
    },
