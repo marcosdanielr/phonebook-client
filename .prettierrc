@@ -1,0 +1,28 @@
+{
+   "plugins": [
+      "prettier-plugin-tailwindcss",
+      "@trivago/prettier-plugin-sort-imports",
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      ["@babel/plugin-proposal-class-properties", { "loose": true }]
+   ],
+   "tabWidth": 3,
+   "semi": true,
+   "useTabs": false,
+   "singleQuote": true,
+   "trailingComma": "all",
+   "arrowParens": "always",
+   "bracketSpacing": true,
+   "endOfLine": "lf",
+   "singleAttributePerLine": true,
+   "bracketSameLine": true,
+   "importOrder": [
+      "^@angular/(.*)$",
+      "^assets/(.*)$",
+      "<THIRD_PARTY_MODULES>",
+      "^@spartan/(.*)$",
+      "^[./]"
+   ],
+   "importOrderSeparation": true,
+   "importOrderSortSpecifiers": true,
+   "importOrderParserPlugins": ["typescript", "decorators-legacy"]
+}
