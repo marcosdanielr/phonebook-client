@@ -1,27 +1,33 @@
-import { Injectable, Inject, forwardRef, inject } from '@angular/core';
-import { AuthenticateRequestModelView } from '../models-views/auth.model-view';
+import { Injectable, Inject } from '@angular/core';
+import {
+  AuthenticateRequestModelView,
+  AuthenticateResponseModelView,
+} from '../models-views/auth.model-view';
 import { DOCUMENT } from '@angular/common';
-import { ApiService } from './api.service';
+import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private http: HttpClient,
+  ) {}
 
   async login({
     email,
     password,
   }: AuthenticateRequestModelView): Promise<void> {
-    const apiService = inject(ApiService);
-    const api = apiService.getApi();
+    const { access_token } = await lastValueFrom(
+      this.http.post<AuthenticateResponseModelView>('/api/auth', {
+        email,
+        password,
+      }),
+    );
 
-    const { data } = await api.post('/auth', {
-      email,
-      password,
-    });
-
-    this.setCookie('token', data.access_token, 7);
+    this.setCookie('token', access_token, 7);
   }
 
   public isAuthenticated(): boolean {
@@ -46,7 +52,7 @@ export class AuthService {
   private setCookie(name: string, value: string, days: number): void {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
     this!.document!.cookie = `${name}=${encodeURIComponent(
-      value
+      value,
     )}; expires=${expires}; path=/`;
   }
 
