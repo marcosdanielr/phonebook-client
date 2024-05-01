@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 
 import { UserModel } from '#models/user.model';
 
+import {
+   AuthenticateRequestViewModel,
+   AuthenticateResponseViewModel,
+} from '#view-models/auth.view-model';
 import { lastValueFrom } from 'rxjs';
 
 interface UserResponse {
@@ -37,5 +41,19 @@ export class UsersService {
       );
 
       return users;
+   }
+
+   async create({
+      email,
+      password,
+   }: AuthenticateRequestViewModel): Promise<void> {
+      const { access_token } = await lastValueFrom(
+         this.http.post<AuthenticateResponseViewModel>('/api/auth', {
+            email,
+            password,
+         }),
+      );
+
+      this.setCookie('token', access_token, 7);
    }
 }

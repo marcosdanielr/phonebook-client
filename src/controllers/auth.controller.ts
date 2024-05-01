@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthenticateRequestModelView } from '#models-views/auth.model-view';
-
 import { AuthService } from '#services/auth.service';
 
 import { RoutesEnum } from '#constants/routes.enum';
+
+import { AuthenticateRequestViewModel } from '#view-models/auth.view-model';
 
 @Injectable({
    providedIn: 'root',
@@ -35,7 +35,7 @@ export class AuthController {
 
       try {
          await this.authService.login(
-            this.loginForm.value as AuthenticateRequestModelView,
+            this.loginForm.value as AuthenticateRequestViewModel,
          );
          this.router.navigate([RoutesEnum.DASHBOARD]);
       } catch (error) {

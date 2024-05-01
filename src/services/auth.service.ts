@@ -5,8 +5,7 @@ import { Inject, Injectable } from '@angular/core';
 import {
    AuthenticateRequestModelView,
    AuthenticateResponseModelView,
-} from '#models-views/auth.model-view';
-
+} from '#view-models/auth.view-model';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable({
