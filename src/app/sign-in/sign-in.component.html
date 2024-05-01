@@ -2,7 +2,7 @@
   <div
     class="max-w-[32.5rem] max-h-[25.6875rem] rounded-[0.5rem] w-full h-full bg-white flex flex-col items-center justify-center">
     <img src="../../assets/icons/logo.svg" class="mb-2" alt="logo" />
-    <form class="w-full items-center flex flex-col justify-center px-16 gap-7" (submit)="handleLogin($event)"
+    <form class="w-full items-center flex flex-col justify-center px-16 gap-7" (submit)="login($event)"
       [formGroup]="loginForm" ngNativeValidate>
       <label htmlLabel class="w-full">
         E-mail
