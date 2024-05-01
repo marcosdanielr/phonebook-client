@@ -4,4 +4,5 @@ export interface UserModel {
    id: number;
    name: string;
    role: UserRolesEnum;
+   created_at: Date;
 }
