@@ -40,6 +40,10 @@ import { RoutesEnum } from '../constants/routes.enum';
 export class HeaderComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
+  handleGoToHome(): void {
+    this.router.navigate([RoutesEnum.DASHBOARD]);
+  }
+
   handleLogout(): void {
     this.authService.logout();
     this.router.navigate([RoutesEnum.LOGIN]);
