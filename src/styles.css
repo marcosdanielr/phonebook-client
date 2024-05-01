@@ -11,6 +11,7 @@
 
 body {
   @apply bg-zinc-100;
+  @apply text-slate-900;
 }
 
 :root {

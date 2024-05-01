@@ -1,0 +1,42 @@
+<header class="w-full h-20 shadow-md bg-white flex items-center justify-between px-5">
+  <img src="../../assets/icons/logo.svg" class="w-16" alt="logo" />
+
+  <brn-popover sideOffset="5" closeDelay="100">
+    <button class="flex items-center justify-center gap-2 cursor-pointer" brnPopoverTrigger htmlBtn>
+      <hlm-avatar>
+        <span class="text-white bg-blue-600" hlmAvatarFallback>U</span>
+      </hlm-avatar>
+
+      <p class="flex items-center text-sm">
+        Olá,&nbsp;
+        <strong>usuário</strong>
+        <img class="ml-1" src="../../assets/icons/dropdown.svg" alt="logo" />
+      </p>
+
+      <ul hlmPopoverContent class="w-52 grid gap-2 bg-white shadow-md rounded-lg text-slate-700 mt-3 mr-2 py-2"
+        *brnPopoverContent="let ctx">
+        <li class="h-8 ml-3">
+          <strong>usuário</strong>
+        </li>
+        <brn-separator hlmSeparator />
+
+        <li class="flex items-center gap-2 cursor-pointer text-sm font-medium h-8 ml-3">
+          <hlm-icon size="base" name="lucideUser" /> Perfil
+        </li>
+
+        <brn-separator hlmSeparator />
+
+        <li class="flex items-center gap-2 cursor-pointer text-sm font-medium h-8 ml-3">
+          <hlm-icon size="base" name="lucideSettings" /> Configurações
+        </li>
+
+        <brn-separator hlmSeparator />
+
+        <li class="flex items-center gap-2 cursor-pointer text-sm font-medium h-8 ml-3" (click)="handleLogout()">
+          <hlm-icon size="base" name="lucideLogOut" />
+          Sair
+        </li>
+      </ul>
+    </button>
+  </brn-popover>
+</header>
