@@ -21,7 +21,7 @@ import { HlmPaginationLinkDirective } from './hlm-pagination-link.directive';
          <hlm-icon
             size="sm"
             name="lucideChevronLeft" />
-         <span>Previous</span>
+         <span>Anterior</span>
       </a>
    `,
 })

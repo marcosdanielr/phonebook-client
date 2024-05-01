@@ -18,7 +18,7 @@ import { HlmPaginationLinkDirective } from './hlm-pagination-link.directive';
          [link]="link()"
          size="default"
          [attr.aria-label]="'Go to next page'">
-         <span>Next</span>
+         <span>Próximo</span>
          <hlm-icon
             size="sm"
             name="lucideChevronRight" />

@@ -20,4 +20,25 @@
          <hlm-th>{{ user.created_at }}</hlm-th>
       </hlm-trow>
    </hlm-table>
+
+   <nav hlmPagination>
+      <ul hlmPaginationContent>
+         <li
+            hlmPaginationItem
+            class="cursor-pointer"
+            (click)="handleGoToPrevPage()">
+            <hlm-pagination-previous />
+         </li>
+         <li hlmPaginationItem>
+            <a hlmPaginationLink>{{ currentPage }}</a>
+         </li>
+
+         <li
+            hlmPaginationItem
+            class="cursor-pointer"
+            (click)="handleGoToNextPage()">
+            <hlm-pagination-next />
+         </li>
+      </ul>
+   </nav>
 </main>

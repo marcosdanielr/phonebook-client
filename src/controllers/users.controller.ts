@@ -15,8 +15,8 @@ export class UsersController {
       return user;
    }
 
-   async listUsers(): Promise<UserModel[]> {
-      const users = await this.usersService.list();
+   async listUsers(page: number): Promise<UserModel[]> {
+      const users = await this.usersService.list(page);
       return users;
    }
 }
