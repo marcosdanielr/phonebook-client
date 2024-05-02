@@ -7,8 +7,6 @@ import { UpdateUserModalComponent } from '#views/components/custom/update-user-m
 
 import { UsersController } from '#controllers/users.controller';
 
-import { formatDate } from '#utils/format-data.util';
-
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
 import { provideIcons } from '@ng-icons/core';
@@ -24,6 +22,7 @@ import {
    HlmPaginationNextComponent,
    HlmPaginationPreviousComponent,
 } from '@spartan-ng/ui-pagination-helm';
+import { HlmSkeletonComponent } from '@spartan-ng/ui-skeleton-helm';
 import {
    HlmCaptionComponent,
    HlmTableComponent,
@@ -55,6 +54,7 @@ import {
 
       CreateUserModalComponent,
       UpdateUserModalComponent,
+      HlmSkeletonComponent,
    ],
    providers: [provideIcons({ lucideTrash2, lucideEdit2 })],
    templateUrl: './dashboard.page.html',
