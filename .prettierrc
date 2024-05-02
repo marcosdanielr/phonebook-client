@@ -1,9 +1,7 @@
 {
    "plugins": [
       "prettier-plugin-tailwindcss",
-      "@trivago/prettier-plugin-sort-imports",
-      ["@babel/plugin-proposal-decorators", { "legacy": true }],
-      ["@babel/plugin-proposal-class-properties", { "loose": true }]
+      "@trivago/prettier-plugin-sort-imports"
    ],
    "tabWidth": 3,
    "semi": true,
@@ -14,7 +12,7 @@
    "bracketSpacing": true,
    "endOfLine": "lf",
    "singleAttributePerLine": true,
-   "bracketSameLine": true,
+   "bracketSameLine": false,
    "importOrder": [
       "^@angular/(.*)$",
       "#views/(.*)$",

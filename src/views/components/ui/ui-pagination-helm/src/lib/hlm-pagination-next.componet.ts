@@ -17,11 +17,13 @@ import { HlmPaginationLinkDirective } from './hlm-pagination-link.directive';
          hlmPaginationLink
          [link]="link()"
          size="default"
-         [attr.aria-label]="'Go to next page'">
+         [attr.aria-label]="'Go to next page'"
+      >
          <span>Próximo</span>
          <hlm-icon
             size="sm"
-            name="lucideChevronRight" />
+            name="lucideChevronRight"
+         />
       </a>
    `,
 })

@@ -14,7 +14,8 @@ import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
    template: `
       <hlm-icon
          class="ml-2 h-4 w-4"
-         name="lucideChevronDown" />
+         name="lucideChevronDown"
+      />
    `,
 })
 export class HlmSelectScrollDownComponent {}

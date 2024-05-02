@@ -18,7 +18,8 @@ import { HlmAvatarComponent } from './hlm-avatar.component';
    template: `
       <hlm-avatar
          [class]="class"
-         id="fallbackOnly">
+         id="fallbackOnly"
+      >
          <span brnAvatarFallback>fallback</span>
       </hlm-avatar>
    `,

@@ -20,7 +20,8 @@ import { HlmIconComponent } from './hlm-icon.component';
          name="lucideCheck"
          [size]="size"
          color="red"
-         strokeWidth="2" />
+         strokeWidth="2"
+      />
    `,
 })
 class HlmMockComponent {

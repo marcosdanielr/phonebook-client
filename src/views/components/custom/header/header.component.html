@@ -1,18 +1,22 @@
 <header
-   class="flex h-20 w-full items-center justify-between bg-white px-5 shadow-md">
+   class="flex h-20 w-full items-center justify-between bg-white px-5 shadow-md"
+>
    <img
       src="views/assets/icons/logo.svg"
       class="w-16 cursor-pointer"
       alt="logo"
-      (click)="handleGoToHome()" />
+      (click)="handleGoToHome()"
+   />
 
    <brn-popover
       sideOffset="5"
-      closeDelay="100">
+      closeDelay="100"
+   >
       <button
          class="flex cursor-pointer items-center justify-center gap-2"
          brnPopoverTrigger
-         htmlBtn>
+         htmlBtn
+      >
          <hlm-avatar>
             <span
                class="bg-blue-600 text-white"
@@ -27,33 +31,39 @@
             <img
                class="ml-1"
                src="views/assets/icons/dropdown.svg"
-               alt="dropdown" />
+               alt="dropdown"
+            />
          </p>
 
          <ul
             hlmPopoverContent
             class="mr-2 mt-3 grid w-52 gap-2 rounded-lg bg-white py-2 text-slate-700 shadow-md"
-            *brnPopoverContent="let ctx">
+            *brnPopoverContent="let ctx"
+         >
             <li class="ml-3 h-8">
                <strong>{{ user!.name }}</strong>
             </li>
             <brn-separator hlmSeparator />
 
             <li
-               class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium">
+               class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium"
+            >
                <hlm-icon
                   size="base"
-                  name="lucideUser" />
+                  name="lucideUser"
+               />
                Perfil
             </li>
 
             <brn-separator hlmSeparator />
 
             <li
-               class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium">
+               class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium"
+            >
                <hlm-icon
                   size="base"
-                  name="lucideSettings" />
+                  name="lucideSettings"
+               />
                Configurações
             </li>
 
@@ -61,10 +71,12 @@
 
             <li
                class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium"
-               (click)="handleLogout()">
+               (click)="handleLogout()"
+            >
                <hlm-icon
                   size="base"
-                  name="lucideLogOut" />
+                  name="lucideLogOut"
+               />
                Sair
             </li>
          </ul>

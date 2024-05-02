@@ -24,14 +24,16 @@ import type { ClassValue } from 'clsx';
          [class]="_computedClass()"
          #button
          brnSelectTrigger
-         type="button">
+         type="button"
+      >
          <ng-content />
          @if (icon) {
             <ng-content select="hlm-icon" />
          } @else {
             <hlm-icon
                class="ml-2 h-4 w-4 flex-none"
-               name="lucideChevronDown" />
+               name="lucideChevronDown"
+            />
          }
       </button>
    `,

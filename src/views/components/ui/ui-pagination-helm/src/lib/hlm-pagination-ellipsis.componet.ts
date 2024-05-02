@@ -15,7 +15,8 @@ import { HlmPaginationLinkDirective } from './hlm-pagination-link.directive';
       <span [class]="_computedClass()">
          <hlm-icon
             size="sm"
-            name="lucideMoreHorizontal" />
+            name="lucideMoreHorizontal"
+         />
          <span class="sr-only">More pages</span>
       </span>
    `,

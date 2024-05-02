@@ -58,7 +58,8 @@ const TAILWIND_H_W_PATTERN = /\b(h-\d+|w-\d+)\b/g;
          [size]="ngIconSize()"
          [name]="_name()"
          [color]="_color()"
-         [strokeWidth]="_strokeWidth()" />
+         [strokeWidth]="_strokeWidth()"
+      />
    `,
    host: {
       '[class]': '_computedClass()',

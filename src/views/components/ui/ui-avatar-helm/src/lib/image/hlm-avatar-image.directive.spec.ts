@@ -10,7 +10,8 @@ import { HlmAvatarImageDirective } from './hlm-avatar-image.directive';
    template: `
       <img
          hlmAvatarImage
-         [class]="userCls" />
+         [class]="userCls"
+      />
    `,
 })
 class HlmMockComponent {
