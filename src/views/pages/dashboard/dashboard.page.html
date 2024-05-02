@@ -23,16 +23,18 @@
          </hlm-th>
          <hlm-th>{{ user.created_at }}</hlm-th>
          <hlm-th>
-            <div
-               class="cursor-pointer text-primary"
+            <app-update-user-modal [user-data]="user" />
+            <button
+               class="ml-1 cursor-pointer text-primary outline-none"
                title="Excluir usuário"
                (click)="deleteUser(user.id)"
             >
                <hlm-icon
+                  class="flex self-center"
                   size="base"
                   name="lucideTrash2"
                />
-            </div>
+            </button>
          </hlm-th>
       </hlm-trow>
    </hlm-table>

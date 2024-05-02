@@ -4,7 +4,10 @@ import { Injectable } from '@angular/core';
 import { UserModel } from '#models/user.model';
 
 import { AuthenticateResponseViewModel } from '#view-models/auth.view-model';
-import { CreateUserViewModel } from '#view-models/users.view-model';
+import {
+   CreateUserViewModel,
+   UpdateUserViewModel,
+} from '#view-models/users.view-model';
 import { lastValueFrom } from 'rxjs';
 
 interface UserResponse {
@@ -44,6 +47,15 @@ export class UsersService {
    async create(body: CreateUserViewModel): Promise<void> {
       await lastValueFrom(
          this.http.post<AuthenticateResponseViewModel>('/api/users', body),
+      );
+   }
+
+   async update(userId: number, body: UpdateUserViewModel): Promise<void> {
+      await lastValueFrom(
+         this.http.patch<void>(`/api/users/${userId}`, {
+            ...body,
+            password: undefined,
+         }),
       );
    }
 

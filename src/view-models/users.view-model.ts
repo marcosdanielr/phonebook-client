@@ -9,6 +9,12 @@ export interface CreateUserViewModel {
    role: UserRolesEnum;
 }
 
+export interface UpdateUserViewModel {
+   name?: string;
+   email?: string;
+   role?: UserRolesEnum;
+}
+
 export interface UserFormViewModel {
    controls: {
       name: FormControl<string | null>;

@@ -6,13 +6,18 @@ import {
    Validators,
 } from '@angular/forms';
 
+import { UpdateUserModalComponent } from '#views/components/custom/update-user-modal/update-user-modal.component';
+
 import { UserModel } from '#models/user.model';
 
 import { UsersService } from '#services/users.service';
 
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
-import { UserFormViewModel } from '#view-models/users.view-model';
+import {
+   UpdateUserViewModel,
+   UserFormViewModel,
+} from '#view-models/users.view-model';
 
 @Injectable({
    providedIn: 'root',
@@ -59,6 +64,17 @@ export class UsersController {
       this.isLoading = false;
    }
 
+   async updateUser(id: number, user: UpdateUserViewModel): Promise<void> {
+      this.isLoading = true;
+      const { email, name, role } = user;
+      await this.usersService.update(id, {
+         email,
+         name,
+         role,
+      });
+      this.isLoading = false;
+   }
+
    async deleteUser(id: number): Promise<void> {
       if (window.confirm('Deseja excluir este usuário?')) {
          this.isLoading = true;
@@ -94,5 +110,19 @@ export class UsersController {
 
          this.isLoading = false;
       }
+   }
+
+   setUserForm(data: UpdateUserViewModel) {
+      this.userForm = this.formBuilder.group({
+         name: new FormControl<string | null>(data.name!, Validators.required),
+         email: new FormControl<string | null>(data.email!, [
+            Validators.required,
+            Validators.email,
+         ]),
+         role: new FormControl<UserRolesEnum | string | null>(
+            data.role!,
+            Validators.required,
+         ),
+      }) as FormGroup & UserFormViewModel;
    }
 }

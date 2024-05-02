@@ -3,15 +3,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { CreateUserModalComponent } from '#views/components/custom/create-user-modal/create-user-modal.component';
 import { HeaderComponent } from '#views/components/custom/header/header.component';
-
-import { UserModel } from '#models/user.model';
+import { UpdateUserModalComponent } from '#views/components/custom/update-user-modal/update-user-modal.component';
 
 import { UsersController } from '#controllers/users.controller';
 
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
 import { provideIcons } from '@ng-icons/core';
-import { lucideTrash2 } from '@ng-icons/lucide';
+import { lucideEdit2, lucideTrash2 } from '@ng-icons/lucide';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import {
@@ -53,8 +52,9 @@ import {
       HlmIconComponent,
 
       CreateUserModalComponent,
+      UpdateUserModalComponent,
    ],
-   providers: [provideIcons({ lucideTrash2 })],
+   providers: [provideIcons({ lucideTrash2, lucideEdit2 })],
    templateUrl: './dashboard.page.html',
 })
 export class DashboardPage extends UsersController implements OnInit {
