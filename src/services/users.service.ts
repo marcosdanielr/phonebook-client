@@ -46,4 +46,8 @@ export class UsersService {
          this.http.post<AuthenticateResponseViewModel>('/api/users', body),
       );
    }
+
+   async delete(userId: number): Promise<void> {
+      await lastValueFrom(this.http.delete<void>(`/api/users/${userId}`));
+   }
 }

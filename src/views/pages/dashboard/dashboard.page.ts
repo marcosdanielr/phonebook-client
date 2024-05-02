@@ -10,7 +10,10 @@ import { UsersController } from '#controllers/users.controller';
 
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
+import { provideIcons } from '@ng-icons/core';
+import { lucideTrash2 } from '@ng-icons/lucide';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
+import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import {
    HlmPaginationContentDirective,
    HlmPaginationDirective,
@@ -47,50 +50,19 @@ import {
       HlmPaginationNextComponent,
       HlmPaginationPreviousComponent,
       HlmButtonDirective,
+      HlmIconComponent,
 
       CreateUserModalComponent,
    ],
+   providers: [provideIcons({ lucideTrash2 })],
    templateUrl: './dashboard.page.html',
 })
 export class DashboardPage extends UsersController implements OnInit {
-   currentPage = 1;
-   users: UserModel[] | undefined;
-
    UserRolesEnum = UserRolesEnum;
 
    async ngOnInit(): Promise<void> {
       const response = await this.listUsers(this.currentPage);
       this.users = response;
       this.isLoading = false;
-   }
-
-   async handleGoToPrevPage(): Promise<void> {
-      if (this.currentPage > 1) {
-         this.isLoading = true;
-
-         this.currentPage--;
-
-         const response = await this.listUsers(this.currentPage);
-         this.users = response;
-
-         this.isLoading = false;
-      }
-   }
-
-   async handleGoToNextPage(): Promise<void> {
-      if (this.users!.length >= 10) {
-         this.isLoading = true;
-
-         this.currentPage++;
-
-         const response = await this.listUsers(this.currentPage);
-         this.users = response;
-
-         this.isLoading = false;
-      }
-   }
-
-   async handleCreateUser(): Promise<void> {
-      await this.createUser();
    }
 }

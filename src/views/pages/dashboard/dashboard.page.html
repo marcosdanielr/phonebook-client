@@ -10,6 +10,7 @@
          <hlm-th>Nome</hlm-th>
          <hlm-th>Tipo</hlm-th>
          <hlm-th>Data de registro</hlm-th>
+         <hlm-th>Ações</hlm-th>
       </hlm-trow>
       <hlm-trow
          class="flex w-full justify-between"
@@ -21,6 +22,18 @@
             {{ user.role === UserRolesEnum.USER ? 'usuário' : 'administrador' }}
          </hlm-th>
          <hlm-th>{{ user.created_at }}</hlm-th>
+         <hlm-th>
+            <div
+               class="cursor-pointer text-primary"
+               title="Excluir usuário"
+               (click)="deleteUser(user.id)"
+            >
+               <hlm-icon
+                  size="base"
+                  name="lucideTrash2"
+               />
+            </div>
+         </hlm-th>
       </hlm-trow>
    </hlm-table>
 

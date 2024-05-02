@@ -40,6 +40,8 @@ export class UsersController {
    }) as FormGroup & UserFormViewModel;
 
    isLoading = false;
+   currentPage = 1;
+   users: UserModel[] | undefined;
 
    async getCurrentUser(): Promise<UserModel> {
       const user = await this.usersService.getCurrentUser();
@@ -55,5 +57,42 @@ export class UsersController {
       this.isLoading = true;
       await this.usersService.create(this.userForm.value);
       this.isLoading = false;
+   }
+
+   async deleteUser(id: number): Promise<void> {
+      if (window.confirm('Deseja excluir este usuário?')) {
+         this.isLoading = true;
+         await this.usersService.delete(id);
+         this.currentPage = 1;
+         const users = await this.listUsers(1);
+         this.users = users;
+         this.isLoading = false;
+      }
+   }
+
+   async handleGoToPrevPage(): Promise<void> {
+      if (this.currentPage > 1) {
+         this.isLoading = true;
+
+         this.currentPage--;
+
+         const response = await this.listUsers(this.currentPage);
+         this.users = response;
+
+         this.isLoading = false;
+      }
+   }
+
+   async handleGoToNextPage(): Promise<void> {
+      if (this.users!.length >= 10) {
+         this.isLoading = true;
+
+         this.currentPage++;
+
+         const response = await this.listUsers(this.currentPage);
+         this.users = response;
+
+         this.isLoading = false;
+      }
    }
 }
