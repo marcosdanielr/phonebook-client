@@ -5,5 +5,5 @@ export interface UserModel {
    name: string;
    email: string;
    role: UserRolesEnum;
-   created_at: Date;
+   created_at: Date | string;
 }

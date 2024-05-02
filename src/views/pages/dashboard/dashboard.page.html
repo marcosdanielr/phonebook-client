@@ -6,22 +6,22 @@
    </div>
    <hlm-table class="w-11/12 bg-white">
       <hlm-trow class="flex w-full justify-between">
-         <hlm-th>ID</hlm-th>
-         <hlm-th>Nome</hlm-th>
-         <hlm-th>Tipo</hlm-th>
-         <hlm-th>Data de registro</hlm-th>
+         <hlm-th class="w-2 text-start">ID</hlm-th>
+         <hlm-th class="w-36 text-start">Nome</hlm-th>
+         <hlm-th class="w-20 text-start">Tipo</hlm-th>
+         <hlm-th class="w-36 text-start">Data de registro</hlm-th>
          <hlm-th>Ações</hlm-th>
       </hlm-trow>
       <hlm-trow
          class="flex w-full justify-between"
          *ngFor="let user of users"
       >
-         <hlm-th>{{ user.id }}</hlm-th>
-         <hlm-th>{{ user.name }}</hlm-th>
-         <hlm-th>
+         <hlm-th class="w-2">{{ user.id }}</hlm-th>
+         <hlm-th class="w-36 text-start">{{ user.name }}</hlm-th>
+         <hlm-th class="w-20 text-start">
             {{ user.role === UserRolesEnum.USER ? 'usuário' : 'administrador' }}
          </hlm-th>
-         <hlm-th>{{ user.created_at }}</hlm-th>
+         <hlm-th class="w-32 text-start">{{ user.created_at }}</hlm-th>
          <hlm-th>
             <app-update-user-modal [user-data]="user" />
             <button
@@ -37,28 +37,30 @@
             </button>
          </hlm-th>
       </hlm-trow>
+      <nav
+         hlmPagination
+         class="py-4"
+      >
+         <ul hlmPaginationContent>
+            <li
+               hlmPaginationItem
+               class="cursor-pointer"
+               (click)="handleGoToPrevPage()"
+            >
+               <hlm-pagination-previous />
+            </li>
+            <li hlmPaginationItem>
+               <a hlmPaginationLink>{{ currentPage }}</a>
+            </li>
+
+            <li
+               hlmPaginationItem
+               class="cursor-pointer"
+               (click)="handleGoToNextPage()"
+            >
+               <hlm-pagination-next />
+            </li>
+         </ul>
+      </nav>
    </hlm-table>
-
-   <nav hlmPagination>
-      <ul hlmPaginationContent>
-         <li
-            hlmPaginationItem
-            class="cursor-pointer"
-            (click)="handleGoToPrevPage()"
-         >
-            <hlm-pagination-previous />
-         </li>
-         <li hlmPaginationItem>
-            <a hlmPaginationLink>{{ currentPage }}</a>
-         </li>
-
-         <li
-            hlmPaginationItem
-            class="cursor-pointer"
-            (click)="handleGoToNextPage()"
-         >
-            <hlm-pagination-next />
-         </li>
-      </ul>
-   </nav>
 </main>

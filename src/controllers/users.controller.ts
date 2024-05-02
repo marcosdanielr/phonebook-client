@@ -6,11 +6,11 @@ import {
    Validators,
 } from '@angular/forms';
 
-import { UpdateUserModalComponent } from '#views/components/custom/update-user-modal/update-user-modal.component';
-
 import { UserModel } from '#models/user.model';
 
 import { UsersService } from '#services/users.service';
+
+import { formatDate } from '#utils/format-data.util';
 
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
@@ -54,7 +54,15 @@ export class UsersController {
    }
 
    async listUsers(page: number): Promise<UserModel[]> {
-      const users = await this.usersService.list(page);
+      const response = await this.usersService.list(page);
+
+      const users = response.map((user) => {
+         return {
+            ...user,
+            created_at: formatDate(String(user.created_at)),
+         };
+      });
+
       return users;
    }
 

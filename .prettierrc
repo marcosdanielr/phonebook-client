@@ -23,6 +23,7 @@
       "#controllers/(.*)$",
       "#guards/(.*)$",
       "#http-interceptors/(.*)$",
+      "#utils/(.*)$",
       "#constants/(.*)$",
       "<THIRD_PARTY_MODULES>",
       "^@spartan/(.*)$",

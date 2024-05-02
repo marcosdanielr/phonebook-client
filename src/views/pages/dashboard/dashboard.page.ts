@@ -7,6 +7,8 @@ import { UpdateUserModalComponent } from '#views/components/custom/update-user-m
 
 import { UsersController } from '#controllers/users.controller';
 
+import { formatDate } from '#utils/format-data.util';
+
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
 import { provideIcons } from '@ng-icons/core';

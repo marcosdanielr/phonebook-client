@@ -32,6 +32,7 @@
          "#models/*": ["models/*"],
          "#view-models/*": ["view-models/*"],
          "#services/*": ["services/*"],
+         "#utils/*": ["utils/*"],
          "@spartan-ng/ui-avatar-helm": [
             "views/components/ui/ui-avatar-helm/src/index.ts"
          ],
