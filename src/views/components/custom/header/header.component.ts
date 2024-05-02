@@ -46,7 +46,6 @@ import { HlmSeparatorDirective } from '@spartan-ng/ui-separator-helm';
 export class HeaderComponent extends UsersController implements OnInit {
    private authController = inject(AuthController);
    public user: UserModel | undefined;
-   public isLoading = false;
 
    async ngOnInit(): Promise<void> {
       this.isLoading = true;

@@ -1,7 +1,9 @@
 <app-header />
 <main class="flex w-full flex-col items-center justify-center pt-14">
-   <h3 class="mb-4 w-11/12 text-start text-xl font-semibold">Usuários</h3>
-
+   <div class="mb-4 flex w-11/12 items-center justify-between">
+      <h3 class="text-xl font-semibold">Usuários</h3>
+      <app-create-user-modal />
+   </div>
    <hlm-table class="w-11/12 bg-white">
       <hlm-trow class="flex w-full justify-between">
          <hlm-th>ID</hlm-th>
@@ -11,7 +13,8 @@
       </hlm-trow>
       <hlm-trow
          class="flex w-full justify-between"
-         *ngFor="let user of users">
+         *ngFor="let user of users"
+      >
          <hlm-th>{{ user.id }}</hlm-th>
          <hlm-th>{{ user.name }}</hlm-th>
          <hlm-th>
@@ -26,7 +29,8 @@
          <li
             hlmPaginationItem
             class="cursor-pointer"
-            (click)="handleGoToPrevPage()">
+            (click)="handleGoToPrevPage()"
+         >
             <hlm-pagination-previous />
          </li>
          <li hlmPaginationItem>
@@ -36,7 +40,8 @@
          <li
             hlmPaginationItem
             class="cursor-pointer"
-            (click)="handleGoToNextPage()">
+            (click)="handleGoToNextPage()"
+         >
             <hlm-pagination-next />
          </li>
       </ul>

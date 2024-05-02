@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
+import { CreateUserModalComponent } from '#views/components/custom/create-user-modal/create-user-modal.component';
 import { HeaderComponent } from '#views/components/custom/header/header.component';
 
 import { UserModel } from '#models/user.model';
@@ -9,6 +10,7 @@ import { UsersController } from '#controllers/users.controller';
 
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import {
    HlmPaginationContentDirective,
    HlmPaginationDirective,
@@ -44,11 +46,13 @@ import {
       HlmPaginationLinkDirective,
       HlmPaginationNextComponent,
       HlmPaginationPreviousComponent,
+      HlmButtonDirective,
+
+      CreateUserModalComponent,
    ],
    templateUrl: './dashboard.page.html',
 })
 export class DashboardPage extends UsersController implements OnInit {
-   isLoading = true;
    currentPage = 1;
    users: UserModel[] | undefined;
 
@@ -84,5 +88,9 @@ export class DashboardPage extends UsersController implements OnInit {
 
          this.isLoading = false;
       }
+   }
+
+   async handleCreateUser(): Promise<void> {
+      await this.createUser();
    }
 }

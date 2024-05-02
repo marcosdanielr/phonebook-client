@@ -1,0 +1,119 @@
+<hlm-dialog>
+   <button
+      id="create-user"
+      brnDialogTrigger
+      hlmBtn
+   >
+      Cadastrar
+   </button>
+   <hlm-dialog-content
+      class="sm:max-w-[425px]"
+      *brnDialogContent="let ctx"
+   >
+      <hlm-dialog-header>
+         <h3 hlmDialogTitle>Criar usuário</h3>
+         <p hlmDialogDescription>
+            Insira as informações do usuário aqui. Então clique em cadastrar.
+         </p>
+      </hlm-dialog-header>
+      <form
+         (submit)="handleCreateUser($event)"
+         [formGroup]="userForm"
+         ngNativeValidate
+      >
+         <div class="grid gap-4 py-4">
+            <div class="grid grid-cols-4 items-center gap-4">
+               <label
+                  hlmLabel
+                  for="name"
+                  class="text-right"
+                  >Nome</label
+               >
+               <input
+                  hlmInput
+                  id="name"
+                  formControlName="name"
+                  required
+                  class="col-span-3"
+               />
+            </div>
+            <div class="grid grid-cols-4 items-center gap-4">
+               <label
+                  hlmLabel
+                  for="email"
+                  class="text-right"
+                  >E-mail</label
+               >
+               <input
+                  hlmInput
+                  id="email"
+                  formControlName="email"
+                  type="email"
+                  required
+                  class="col-span-3"
+               />
+            </div>
+
+            <div class="grid grid-cols-4 items-center gap-4">
+               <label
+                  hlmLabel
+                  for="password"
+                  class="text-right"
+                  >Senha</label
+               >
+               <input
+                  hlmInput
+                  id="password"
+                  formControlName="password"
+                  class="col-span-3"
+                  type="password"
+                  minlength="8"
+                  required
+               />
+            </div>
+
+            <div class="grid grid-cols-4 items-center gap-4">
+               <label
+                  hlmLabel
+                  for="role"
+                  class="text-right"
+                  >Tipo</label
+               >
+               <brn-select
+                  class="col-span-3"
+                  placeholder="Selecione uma opção"
+                  id="role"
+                  formControlName="role"
+                  required
+               >
+                  <hlm-select-trigger class="w-full">
+                     <hlm-select-value />
+                  </hlm-select-trigger>
+                  <hlm-select-content>
+                     <hlm-option value="{{ UserRolesEnum.USER }}"
+                        >Usuário</hlm-option
+                     >
+                     <hlm-option value="{{ UserRolesEnum.ADMIN }}"
+                        >Administrador</hlm-option
+                     >
+                  </hlm-select-content>
+               </brn-select>
+            </div>
+         </div>
+         <hlm-dialog-footer>
+            <button
+               hlmBtn
+               type="submit"
+               brnDialogTrigger
+               [disabled]="isLoading"
+               class="w-24"
+            >
+               <ng-container *ngIf="isLoading; else buttonText">
+                  <hlm-spinner size="sm" />
+               </ng-container>
+               <ng-template #buttonText>Cadastrar</ng-template>
+            </button>
+         </hlm-dialog-footer>
+      </form>
+   </hlm-dialog-content>
+</hlm-dialog>
