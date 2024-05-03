@@ -44,7 +44,7 @@ export class UsersController {
       ),
    }) as FormGroup & UserFormViewModel;
 
-   isLoading = true;
+   isLoading = false;
    currentPage = 1;
    users: UserModel[] | undefined;
 
