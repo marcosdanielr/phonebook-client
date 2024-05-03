@@ -40,7 +40,6 @@ export class UserPhoneNumbersService {
    }
 
    async list(userId: number): Promise<UserPhoneNumberModel[]> {
-      console.log(userId);
       const { user_phone_numbers } = await lastValueFrom(
          this.http.get<UserPhoneNumbersResponse>(
             `/api/users/${userId}/phone_numbers`,

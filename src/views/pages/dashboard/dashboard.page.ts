@@ -6,6 +6,8 @@ import { HeaderComponent } from '#views/components/custom/header/header.componen
 import { UpdateUserModalComponent } from '#views/components/custom/update-user-modal/update-user-modal.component';
 import { UserPhonesModalComponent } from '#views/components/custom/user-phones-modal/user-phones-modal.component';
 
+import { UserModel } from '#models/user.model';
+
 import { UsersController } from '#controllers/users.controller';
 
 import { truncateText } from '#utils/truncate-text.util';
@@ -66,7 +68,7 @@ import {
 export class DashboardPage extends UsersController implements OnInit {
    UserRolesEnum = UserRolesEnum;
    truncateText = truncateText;
-   userId = 0;
+   user: UserModel = undefined!;
 
    async ngOnInit(): Promise<void> {
       const response = await this.listUsers(this.currentPage);
@@ -74,12 +76,26 @@ export class DashboardPage extends UsersController implements OnInit {
       this.isLoading = false;
    }
 
-   handleOpenUserPhonesModal(userId: number): void {
+   handleOpenUserPhonesModal(event: Event, user: UserModel): void {
+      event.stopImmediatePropagation();
+
       const openUserPhonesButton = document.getElementById(
          'open-user-phones-button',
       );
 
-      this.userId = userId;
+      this.user = user;
+
+      openUserPhonesButton!.click();
+   }
+
+   handleOpenUpdateUserModal(event: Event, user: UserModel): void {
+      event.stopImmediatePropagation();
+
+      const openUserPhonesButton = document.getElementById(
+         'open-user-user-button',
+      );
+
+      this.user = user;
 
       openUserPhonesButton!.click();
    }

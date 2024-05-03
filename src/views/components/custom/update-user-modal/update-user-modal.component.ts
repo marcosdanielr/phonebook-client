@@ -63,18 +63,21 @@ import { HlmSelectImports } from '@spartan-ng/ui-select-helm';
    templateUrl: './update-user-modal.component.html',
 })
 export class UpdateUserModalComponent extends UsersController {
-   UserRolesEnum = UserRolesEnum;
+   public UserRolesEnum = UserRolesEnum;
+   private _user: UserModel = undefined!;
 
-   @Input('user-data') userData: UserModel = undefined!;
+   @Input('user-data')
+   set userData(value: UserModel) {
+      if (value !== this._user && value) {
+         const { email, name, role } = value;
+         this._user = value;
 
-   setUserData(): void {
-      const { email, name, role } = this.userData;
-
-      this.setUserForm({
-         email,
-         name,
-         role,
-      });
+         this.setUserForm({
+            email,
+            name,
+            role,
+         });
+      }
    }
 
    async handleEditUser(event: Event): Promise<void> {
@@ -93,8 +96,14 @@ export class UpdateUserModalComponent extends UsersController {
 
          window.location.reload();
       } catch (error: any) {
-         if (error.status === StatusCodeEnum.CONFLICT)
+         if (error.status === StatusCodeEnum.CONFLICT) {
             alert('Usuário já cadastrado.');
+            return;
+         }
+
+         alert(
+            'Houve um erro inesperado! Verifique seus dados e tente novamente!',
+         );
       } finally {
          this.isLoading = false;
       }

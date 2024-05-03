@@ -69,8 +69,14 @@ export class CreateUserModalComponent extends UsersController {
          await this.createUser();
          window.location.reload();
       } catch (error: any) {
-         if (error.status === StatusCodeEnum.CONFLICT)
+         if (error.status === StatusCodeEnum.CONFLICT) {
             alert('Usuário já cadastrado.');
+            return;
+         }
+
+         alert(
+            'Houve um erro inesperado! Verifique seus dados e tente novamente!',
+         );
       } finally {
          this.isLoading = false;
       }

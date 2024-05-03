@@ -23,16 +23,16 @@
          <hlm-skeleton class="h-14 w-full border-2 shadow-sm" />
       </ng-container>
 
-      <app-user-phones-modal [user-id]="userId" />
-
       <ng-container *ngIf="!isLoading">
+         <app-user-phones-modal [user-id]="user?.id ? user.id : 0" />
+         <app-update-user-modal [user-data]="user" />
          <hlm-trow
             class="flex w-full justify-between"
             *ngFor="let user of users"
          >
             <div
                class="flex w-full cursor-pointer justify-between"
-               (click)="handleOpenUserPhonesModal(user.id)"
+               (click)="handleOpenUserPhonesModal($event, user)"
             >
                <hlm-th class="w-2">{{ user.id }}</hlm-th>
                <hlm-th class="w-36 text-start"
@@ -47,7 +47,20 @@
                </hlm-th>
                <hlm-th class="w-32 text-start">{{ user.created_at }}</hlm-th>
                <hlm-th>
-                  <app-update-user-modal [user-data]="user" />
+                  <button
+                     id="update-user"
+                     brnDialogTrigger
+                     class="flex cursor-pointer self-center text-primary outline-none"
+                     title="Editar usuário"
+                     (click)="handleOpenUpdateUserModal($event, user)"
+                  >
+                     <hlm-icon
+                        class="flex self-center"
+                        size="base"
+                        name="lucideEdit2"
+                     />
+                  </button>
+
                   <button
                      class="ml-1 cursor-pointer text-primary outline-none"
                      title="Excluir usuário"
