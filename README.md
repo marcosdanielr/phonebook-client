@@ -1,27 +1,52 @@
-# PhonebookClient
+## Telephone Directory Client
+### Agenda telefônica
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+### Tecnologias Utilizadas
 
-## Development server
+- **Angular.JS**
+- **Tailwind**
+- **Spartan UI**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=angular,tailwind,spartanui" alt="techs">
+</p>
 
-## Code scaffolding
+### Estrutura:
+- **MVVM**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Pré-requisitos
 
-## Build
+- Certifique-se de ter o Node.js versão 20.12.2 instalado no seu sistema.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalação
 
-## Running unit tests
+1. Clone este repositório e instale as dependências do projeto:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm install
+```
 
-## Running end-to-end tests
+## Configurando o Proxy da API
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+No arquivo `environments/proxy.config.json`, adicione a configuração do proxy para redirecionar as chamadas da API. Por exemplo:
 
-## Further help
+```json
+{
+   "/api": {
+      "target": "http://localhost:3333/",
+      "secure": false,
+      "changeOrigin": true
+   }
+}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+
+Certifique-se de substituir `http://localhost:3333` pelo URL da sua API.
+
+## Executando o Servidor de Desenvolvimento
+
+Após a instalação das dependências e a configuração do proxy da API, você pode iniciar o servidor de desenvolvimento executando o seguinte comando:
+
+```bash
+ng serve --open
+```
