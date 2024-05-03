@@ -1,85 +1,53 @@
-<header
-   class="flex h-20 w-full items-center justify-between bg-white px-5 shadow-md"
->
-   <img
-      src="views/assets/icons/logo.svg"
-      class="w-16 cursor-pointer"
-      alt="logo"
-      (click)="handleGoToHome()"
-   />
+<header class="flex h-20 w-full items-center justify-between bg-white px-5 shadow-md">
+  <img src="views/assets/icons/logo.svg" class="w-16 cursor-pointer" alt="logo" (click)="handleGoToHome()" />
 
-   <brn-popover
-      sideOffset="5"
-      closeDelay="100"
-   >
-      <button
-         class="flex cursor-pointer items-center justify-center gap-2"
-         brnPopoverTrigger
-         htmlBtn
-      >
-         <hlm-avatar>
-            <span
-               class="bg-blue-600 text-white"
-               hlmAvatarFallback
-               >{{ user!.name[0] }}</span
-            >
-         </hlm-avatar>
+  <ng-container *ngIf="isLoading">
+    <div class="flex items-center justify-center gap-2">
+      <hlm-skeleton class="h-10 w-10 rounded-full" />
+      <hlm-skeleton class="h-5 w-32" />
+    </div>
+  </ng-container>
 
-         <p class="flex items-center text-sm">
-            Olá,&nbsp;
-            <strong>{{ user!.name }}</strong>
-            <img
-               class="ml-1"
-               src="views/assets/icons/dropdown.svg"
-               alt="dropdown"
-            />
-         </p>
+  <ng-container *ngIf="!isLoading">
+    <brn-popover sideOffset="5" closeDelay="100">
+      <button class="flex cursor-pointer items-center justify-center gap-2" brnPopoverTrigger htmlBtn>
+        <hlm-avatar>
+          <span class="bg-blue-600 text-white" hlmAvatarFallback>{{ user.name[0] }}</span>
+        </hlm-avatar>
 
-         <ul
-            hlmPopoverContent
-            class="mr-2 mt-3 grid w-52 gap-2 rounded-lg bg-white py-2 text-slate-700 shadow-md"
-            *brnPopoverContent="let ctx"
-         >
-            <li class="ml-3 h-8">
-               <strong>{{ user!.name }}</strong>
-            </li>
-            <brn-separator hlmSeparator />
+        <p class="flex items-center text-sm">
+          Olá,&nbsp;
+          <strong>{{ user.name }}</strong>
+          <img class="ml-1" src="views/assets/icons/dropdown.svg" alt="dropdown" />
+        </p>
 
-            <li
-               class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium"
-            >
-               <hlm-icon
-                  size="base"
-                  name="lucideUser"
-               />
-               Perfil
-            </li>
+        <ul hlmPopoverContent class="mr-2 mt-3 grid w-52 gap-2 rounded-lg bg-white py-2 text-slate-700 shadow-md"
+          *brnPopoverContent="let ctx">
+          <li class="ml-3 h-8">
+            <strong>{{ user.name }}</strong>
+          </li>
+          <brn-separator hlmSeparator />
 
-            <brn-separator hlmSeparator />
+          <li class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium">
+            <hlm-icon size="base" name="lucideUser" />
+            Perfil
+          </li>
 
-            <li
-               class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium"
-            >
-               <hlm-icon
-                  size="base"
-                  name="lucideSettings"
-               />
-               Configurações
-            </li>
+          <brn-separator hlmSeparator />
 
-            <brn-separator hlmSeparator />
+          <li class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium">
+            <hlm-icon size="base" name="lucideSettings" />
+            Configurações
+          </li>
 
-            <li
-               class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium"
-               (click)="handleLogout()"
-            >
-               <hlm-icon
-                  size="base"
-                  name="lucideLogOut"
-               />
-               Sair
-            </li>
-         </ul>
+          <brn-separator hlmSeparator />
+
+          <li class="ml-3 flex h-8 cursor-pointer items-center gap-2 text-sm font-medium" (click)="handleLogout()">
+            <hlm-icon size="base" name="lucideLogOut" />
+            Sair
+          </li>
+        </ul>
       </button>
-   </brn-popover>
+    </brn-popover>
+  </ng-container>
 </header>

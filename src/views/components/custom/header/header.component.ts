@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,6 +8,7 @@ import { AuthController } from '#controllers/auth.controller';
 import { UsersController } from '#controllers/users.controller';
 
 import { RoutesEnum } from '#constants/routes.enum';
+import { userInitial } from '#constants/user-initial';
 
 import { provideIcons } from '@ng-icons/core';
 import { lucideLogOut, lucideSettings, lucideUser } from '@ng-icons/lucide';
@@ -24,6 +26,7 @@ import {
 } from '@spartan-ng/ui-popover-brain';
 import { BrnSeparatorComponent } from '@spartan-ng/ui-separator-brain';
 import { HlmSeparatorDirective } from '@spartan-ng/ui-separator-helm';
+import { HlmSkeletonComponent } from '@spartan-ng/ui-skeleton-helm';
 
 @Component({
    selector: 'app-header',
@@ -39,13 +42,15 @@ import { HlmSeparatorDirective } from '@spartan-ng/ui-separator-helm';
       HlmIconComponent,
       HlmSeparatorDirective,
       BrnSeparatorComponent,
+      HlmSkeletonComponent,
+      CommonModule,
    ],
    providers: [provideIcons({ lucideUser, lucideSettings, lucideLogOut })],
    templateUrl: './header.component.html',
 })
 export class HeaderComponent extends UsersController implements OnInit {
    private authController = inject(AuthController);
-   public user: UserModel | undefined;
+   public user: UserModel = userInitial;
 
    async ngOnInit(): Promise<void> {
       this.isLoading = true;
