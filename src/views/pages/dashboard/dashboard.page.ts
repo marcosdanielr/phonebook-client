@@ -7,6 +7,8 @@ import { UpdateUserModalComponent } from '#views/components/custom/update-user-m
 
 import { UsersController } from '#controllers/users.controller';
 
+import { truncateText } from '#utils/truncate-text.util';
+
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
 import { provideIcons } from '@ng-icons/core';
@@ -61,6 +63,7 @@ import {
 })
 export class DashboardPage extends UsersController implements OnInit {
    UserRolesEnum = UserRolesEnum;
+   truncateText = truncateText;
 
    async ngOnInit(): Promise<void> {
       const response = await this.listUsers(this.currentPage);

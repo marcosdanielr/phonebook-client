@@ -7,6 +7,9 @@ import { UserModel } from '#models/user.model';
 import { AuthController } from '#controllers/auth.controller';
 import { UsersController } from '#controllers/users.controller';
 
+import { getFirstWord } from '#utils/get-first-word.util';
+import { truncateText } from '#utils/truncate-text.util';
+
 import { RoutesEnum } from '#constants/routes.enum';
 import { userInitial } from '#constants/user-initial';
 
@@ -51,6 +54,8 @@ import { HlmSkeletonComponent } from '@spartan-ng/ui-skeleton-helm';
 export class HeaderComponent extends UsersController implements OnInit {
    private authController = inject(AuthController);
    public user: UserModel = userInitial;
+   public truncateText = truncateText;
+   public getFirstWord = getFirstWord;
 
    async ngOnInit(): Promise<void> {
       this.isLoading = true;
