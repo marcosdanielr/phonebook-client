@@ -23,37 +23,44 @@
          <hlm-skeleton class="h-14 w-full border-2 shadow-sm" />
       </ng-container>
 
+      <app-user-phones-modal [user-id]="userId" />
+
       <ng-container *ngIf="!isLoading">
          <hlm-trow
             class="flex w-full justify-between"
             *ngFor="let user of users"
          >
-            <hlm-th class="w-2">{{ user.id }}</hlm-th>
-            <hlm-th class="w-36 text-start"
-               >{{ truncateText(user.name, 35) }}</hlm-th
+            <div
+               class="flex w-full cursor-pointer justify-between"
+               (click)="handleOpenUserPhonesModal(user.id)"
             >
-            <hlm-th class="w-36 text-start"
-               >{{ truncateText(user.email, 35) }}</hlm-th
-            >
-            <hlm-th class="w-20 text-start">
-               {{ user.role === UserRolesEnum.USER ? 'usuário' : 'administrador'
-               }}
-            </hlm-th>
-            <hlm-th class="w-32 text-start">{{ user.created_at }}</hlm-th>
-            <hlm-th>
-               <app-update-user-modal [user-data]="user" />
-               <button
-                  class="ml-1 cursor-pointer text-primary outline-none"
-                  title="Excluir usuário"
-                  (click)="deleteUser(user.id)"
+               <hlm-th class="w-2">{{ user.id }}</hlm-th>
+               <hlm-th class="w-36 text-start"
+                  >{{ truncateText(user.name, 35) }}</hlm-th
                >
-                  <hlm-icon
-                     class="flex self-center"
-                     size="base"
-                     name="lucideTrash2"
-                  />
-               </button>
-            </hlm-th>
+               <hlm-th class="w-36 text-start"
+                  >{{ truncateText(user.email, 35) }}</hlm-th
+               >
+               <hlm-th class="w-20 text-start">
+                  {{ user.role === UserRolesEnum.USER ? 'usuário' :
+                  'administrador' }}
+               </hlm-th>
+               <hlm-th class="w-32 text-start">{{ user.created_at }}</hlm-th>
+               <hlm-th>
+                  <app-update-user-modal [user-data]="user" />
+                  <button
+                     class="ml-1 cursor-pointer text-primary outline-none"
+                     title="Excluir usuário"
+                     (click)="deleteUser(user.id, $event)"
+                  >
+                     <hlm-icon
+                        class="flex self-center"
+                        size="base"
+                        name="lucideTrash2"
+                     />
+                  </button>
+               </hlm-th>
+            </div>
          </hlm-trow>
       </ng-container>
       <nav

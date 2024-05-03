@@ -1,0 +1,89 @@
+<hlm-dialog>
+   <button
+      id="open-user-phones-button"
+      brnDialogTrigger
+      class="hidden"
+   ></button>
+
+   <hlm-dialog-content
+      class="sm:max-w-[425px]"
+      *brnDialogContent="let ctx"
+   >
+      <hlm-dialog-header>
+         <h3 hlmDialogTitle>Telefones cadastrados</h3>
+         <p hlmDialogDescription>
+            Insira as informações do usuário aqui. Então clique em editar.
+         </p>
+      </hlm-dialog-header>
+
+      <form
+         class="flex items-center"
+         (submit)="handleCreateUserPhone($event)"
+         [formGroup]="createPhoneNumberForm"
+         ngNativeValidate
+      >
+         <input
+            class="w-80 rounded-r-none"
+            hlmInput
+            placeholder="Insira algum telefone para cadastrar"
+            formControlName="number"
+            type="tel"
+            [mask]="'(00) 00000-0000'"
+            required
+            minlength="11"
+         />
+         <button
+            hlmBtn
+            class="items-center justify-center rounded-l-none"
+            [disabled]="isCreatingPhoneNumber"
+         >
+            <ng-container *ngIf="isCreatingPhoneNumber; else addIcon">
+               <hlm-spinner size="sm" />
+            </ng-container>
+            <ng-template #addIcon>
+               <hlm-icon name="lucidePlus" />
+            </ng-template>
+         </button>
+      </form>
+
+      <div class="flex max-h-40 flex-col gap-1 overflow-y-scroll">
+         <ng-container *ngIf="isFetchingPhoneNumbers; else list">
+            <hlm-skeleton class="h-6 w-full" />
+            <hlm-skeleton class="h-6 w-full" />
+            <hlm-skeleton class="h-6 w-full" />
+            <hlm-skeleton class="h-6 w-full" />
+            <hlm-skeleton class="h-6 w-full" />
+         </ng-container>
+         <ng-template #list>
+            <p
+               class="flex w-full items-center justify-between"
+               *ngFor="let userPhoneNumber of userPhoneNumbers"
+            >
+               {{ formatToPhoneNumber(userPhoneNumber.number) }}
+
+               <button
+                  class="flex h-6 w-6 items-center justify-center rounded-[4px] bg-primary text-white outline-none"
+                  (click)="delete(userPhoneNumber.id)"
+                  [disabled]="loadingActionIn === userPhoneNumber.id"
+               >
+                  <ng-container
+                     *ngIf="
+                        loadingActionIn === userPhoneNumber.id;
+                        else deleteIcon
+                     "
+                  >
+                     <hlm-spinner size="sm" />
+                  </ng-container>
+                  <ng-template #deleteIcon>
+                     <hlm-icon
+                        name="lucideTrash2"
+                        class="cursor-pointer"
+                        size="1.2rem"
+                     />
+                  </ng-template>
+               </button>
+            </p>
+         </ng-template>
+      </div>
+   </hlm-dialog-content>
+</hlm-dialog>

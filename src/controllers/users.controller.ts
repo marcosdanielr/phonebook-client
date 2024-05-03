@@ -83,7 +83,9 @@ export class UsersController {
       this.isLoading = false;
    }
 
-   async deleteUser(id: number): Promise<void> {
+   async deleteUser(id: number, event: Event): Promise<void> {
+      event.stopPropagation();
+
       if (window.confirm('Deseja excluir este usuário?')) {
          this.isLoading = true;
          await this.usersService.delete(id);

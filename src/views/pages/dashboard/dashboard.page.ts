@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreateUserModalComponent } from '#views/components/custom/create-user-modal/create-user-modal.component';
 import { HeaderComponent } from '#views/components/custom/header/header.component';
 import { UpdateUserModalComponent } from '#views/components/custom/update-user-modal/update-user-modal.component';
+import { UserPhonesModalComponent } from '#views/components/custom/user-phones-modal/user-phones-modal.component';
 
 import { UsersController } from '#controllers/users.controller';
 
@@ -57,6 +58,7 @@ import {
       CreateUserModalComponent,
       UpdateUserModalComponent,
       HlmSkeletonComponent,
+      UserPhonesModalComponent,
    ],
    providers: [provideIcons({ lucideTrash2, lucideEdit2 })],
    templateUrl: './dashboard.page.html',
@@ -64,10 +66,21 @@ import {
 export class DashboardPage extends UsersController implements OnInit {
    UserRolesEnum = UserRolesEnum;
    truncateText = truncateText;
+   userId = 0;
 
    async ngOnInit(): Promise<void> {
       const response = await this.listUsers(this.currentPage);
       this.users = response;
       this.isLoading = false;
+   }
+
+   handleOpenUserPhonesModal(userId: number): void {
+      const openUserPhonesButton = document.getElementById(
+         'open-user-phones-button',
+      );
+
+      this.userId = userId;
+
+      openUserPhonesButton!.click();
    }
 }
