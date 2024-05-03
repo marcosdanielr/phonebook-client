@@ -1,6 +1,6 @@
 {
    "/api": {
-      "target": "http://localhost:3333/",
+      "target": "https://phonebook-server-nmj0.onrender.com/",
       "secure": false,
       "changeOrigin": true
    }
