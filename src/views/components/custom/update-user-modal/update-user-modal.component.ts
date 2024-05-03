@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, inject } from '@angular/core';
-import {
-   FormBuilder,
-   FormControl,
-   FormGroup,
-   ReactiveFormsModule,
-} from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HlmSpinnerComponent } from '#views/components/ui/ui-spinner-helm/src';
 
@@ -13,6 +8,7 @@ import { UserModel } from '#models/user.model';
 
 import { UsersController } from '#controllers/users.controller';
 
+import { StatusCodeEnum } from '#constants/status-code.enum';
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
 import { provideIcons } from '@ng-icons/core';
@@ -87,15 +83,20 @@ export class UpdateUserModalComponent extends UsersController {
       if (this.userForm.invalid) {
          return;
       }
-
       const { name, email, role } = this.userForm.value;
+      try {
+         await this.updateUser(this.userData.id, {
+            name,
+            email,
+            role,
+         });
 
-      await this.updateUser(this.userData.id, {
-         name,
-         email,
-         role,
-      });
-
-      window.location.reload();
+         window.location.reload();
+      } catch (error: any) {
+         if (error.status === StatusCodeEnum.CONFLICT)
+            alert('Usuário já cadastrado.');
+      } finally {
+         this.isLoading = false;
+      }
    }
 }

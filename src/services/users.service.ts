@@ -44,8 +44,10 @@ export class UsersService {
       return users;
    }
 
-   async create(body: CreateUserViewModel): Promise<void> {
-      await lastValueFrom(
+   async create(
+      body: CreateUserViewModel,
+   ): Promise<AuthenticateResponseViewModel> {
+      return await lastValueFrom(
          this.http.post<AuthenticateResponseViewModel>('/api/users', body),
       );
    }

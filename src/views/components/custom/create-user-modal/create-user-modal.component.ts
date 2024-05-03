@@ -1,15 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { HlmSpinnerComponent } from '#views/components/ui/ui-spinner-helm/src';
 
 import { UsersController } from '#controllers/users.controller';
 
+import { StatusCodeEnum } from '#constants/status-code.enum';
 import { UserRolesEnum } from '#constants/user-roles.enum';
 
-import { UserFormViewModel } from '#view-models/users.view-model';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import {
    BrnDialogContentDirective,
@@ -66,7 +65,14 @@ export class CreateUserModalComponent extends UsersController {
          return;
       }
 
-      await this.createUser();
-      window.location.reload();
+      try {
+         await this.createUser();
+         window.location.reload();
+      } catch (error: any) {
+         if (error.status === StatusCodeEnum.CONFLICT)
+            alert('Usuário já cadastrado.');
+      } finally {
+         this.isLoading = false;
+      }
    }
 }
