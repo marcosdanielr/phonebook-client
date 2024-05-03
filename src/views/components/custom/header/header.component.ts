@@ -52,6 +52,7 @@ import { HlmSkeletonComponent } from '@spartan-ng/ui-skeleton-helm';
    templateUrl: './header.component.html',
 })
 export class HeaderComponent extends UsersController implements OnInit {
+   private router = inject(Router);
    private authController = inject(AuthController);
    public user: UserModel = userInitial;
    public truncateText = truncateText;
@@ -65,8 +66,7 @@ export class HeaderComponent extends UsersController implements OnInit {
    }
 
    handleGoToHome(): void {
-      const router = inject(Router);
-      router.navigate([RoutesEnum.DASHBOARD]);
+      this.router.navigate([RoutesEnum.DASHBOARD]);
    }
 
    handleLogout(): void {
