@@ -1,6 +1,8 @@
 ## Telephone Directory Client
 ### Agenda telefônica
 
+![Demonstração](tmp/app.gif)
+
 ### Tecnologias Utilizadas
 
 - **Angular.JS**
