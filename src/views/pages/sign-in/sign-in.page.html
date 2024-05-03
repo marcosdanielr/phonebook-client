@@ -22,6 +22,7 @@
                hlmInput
                class="w-full"
                type="email"
+               autocomplete="email"
                formControlName="email"
                placeholder="Insira seu e-mail"
                maxlength="254"
@@ -47,6 +48,7 @@
                type="{{ !isShowingPassword ? 'password' : 'text' }}"
                placeholder="Insira sua senha"
                maxlength="240"
+               autocomplete="current-password"
                required
             />
          </label>
