@@ -30,10 +30,10 @@
          >
             <hlm-th class="w-2">{{ user.id }}</hlm-th>
             <hlm-th class="w-36 text-start"
-               >{{ truncateText(user.name, 64) }}</hlm-th
+               >{{ truncateText(user.name, 35) }}</hlm-th
             >
             <hlm-th class="w-36 text-start"
-               >{{ truncateText(user.email, 64) }}</hlm-th
+               >{{ truncateText(user.email, 35) }}</hlm-th
             >
             <hlm-th class="w-20 text-start">
                {{ user.role === UserRolesEnum.USER ? 'usuário' : 'administrador'
