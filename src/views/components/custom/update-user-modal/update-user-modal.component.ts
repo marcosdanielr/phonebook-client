@@ -86,9 +86,10 @@ export class UpdateUserModalComponent extends UsersController {
       if (this.userForm.invalid) {
          return;
       }
+
       const { name, email, role } = this.userForm.value;
       try {
-         await this.updateUser(this.userData.id, {
+         await this.updateUser(this._user.id, {
             name,
             email,
             role,
@@ -100,6 +101,10 @@ export class UpdateUserModalComponent extends UsersController {
             alert('Usuário já cadastrado.');
             return;
          }
+
+         console.log({
+            error,
+         });
 
          alert(
             'Houve um erro inesperado! Verifique seus dados e tente novamente!',
