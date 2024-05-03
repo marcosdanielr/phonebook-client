@@ -18,9 +18,9 @@
       *brnDialogContent="let ctx"
    >
       <hlm-dialog-header>
-         <h3 hlmDialogTitle>Criar usuário</h3>
+         <h3 hlmDialogTitle>Editar usuário</h3>
          <p hlmDialogDescription>
-            Insira as informações do usuário aqui. Então clique em cadastrar.
+            Insira as informações do usuário aqui. Então clique em editar.
          </p>
       </hlm-dialog-header>
       <form
@@ -99,7 +99,7 @@
                <ng-container *ngIf="isLoading; else buttonText">
                   <hlm-spinner size="sm" />
                </ng-container>
-               <ng-template #buttonText>Cadastrar</ng-template>
+               <ng-template #buttonText>Editar</ng-template>
             </button>
          </hlm-dialog-footer>
       </form>
