@@ -10,7 +10,7 @@
 - **Spartan UI**
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=angular,tailwind,spartanui" alt="techs">
+  <img src="https://skillicons.dev/icons?i=angular,tailwind" alt="techs">
 </p>
 
 ### Estrutura:
